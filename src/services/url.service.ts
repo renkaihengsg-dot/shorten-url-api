@@ -1,0 +1,29 @@
+import { WhereOptions } from "sequelize";
+import { nanoid } from "nanoid";
+
+import { Url } from "#models/index.js";
+
+const createShortenUrl = async (originalUrl: string): Promise<Url> => {
+  const shortCode = nanoid(10);
+  const result = await Url.create({
+    shortCode: shortCode,
+    originalUrl: originalUrl,
+  });
+
+  return result;
+};
+
+const getOriginalUrl = async (shortCode: string) => {
+  const condition: WhereOptions<Url> = {
+    shortCode: shortCode,
+  };
+
+  const url = await Url.findOne({
+    where: condition,
+    order: [["createdAt", "DESC"]],
+  });
+
+  return url;
+};
+
+export { createShortenUrl, getOriginalUrl };

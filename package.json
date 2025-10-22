@@ -1,0 +1,40 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@types/yup": "^0.32.0",
+    "express": "^5.1.0",
+    "mysql2": "^3.15.3",
+    "nanoid": "^5.1.6",
+    "sequelize": "^6.37.7",
+    "uuid": "^13.0.0",
+    "yup": "^1.7.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.38.0",
+    "@tsconfig/node20": "^20.1.6",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.9.1",
+    "eslint": "^9.38.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.2"
+  },
+  "scripts": {
+    "dev": "tsx --watch --env-file .env src/index.ts",
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "imports": {
+    "#*": "./src/*"
+  }
+}
