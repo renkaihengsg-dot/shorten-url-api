@@ -40,5 +40,8 @@
   },
   "imports": {
     "#*": "./src/*"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
