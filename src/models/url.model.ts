@@ -1,5 +1,4 @@
 import { sequelize } from "#db/connection.js";
-import { timeStamp } from "node:console";
 import {
   CreationOptional,
   DataTypes,
@@ -23,7 +22,7 @@ Url.init(
       autoIncrement: true,
       primaryKey: true,
       field: "ID",
-      type: DataTypes.BIGINT.UNSIGNED,
+      type: DataTypes.BIGINT,
       allowNull: false,
     },
     expiresAt: {

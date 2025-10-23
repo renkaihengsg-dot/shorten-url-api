@@ -6,9 +6,11 @@
   "type": "module",
   "dependencies": {
     "@types/yup": "^0.32.0",
+    "cors": "^2.8.5",
     "express": "^5.1.0",
     "mysql2": "^3.15.3",
     "nanoid": "^5.1.6",
+    "pg": "^8.16.3",
     "sequelize": "^6.37.7",
     "uuid": "^13.0.0",
     "yup": "^1.7.1"
@@ -16,6 +18,7 @@
   "devDependencies": {
     "@eslint/js": "^9.38.0",
     "@tsconfig/node20": "^20.1.6",
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "@types/node": "^24.9.1",
     "eslint": "^9.38.0",

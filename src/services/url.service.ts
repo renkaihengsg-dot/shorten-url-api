@@ -4,7 +4,7 @@ import { nanoid } from "nanoid";
 import { Url } from "#models/index.js";
 
 const createShortenUrl = async (originalUrl: string): Promise<Url> => {
-  const shortCode = nanoid(10);
+  const shortCode = nanoid(6);
   const result = await Url.create({
     shortCode: shortCode,
     originalUrl: originalUrl,
