@@ -1,8 +1,12 @@
 {
   "extends": "@tsconfig/node20/tsconfig.json",
   "compilerOptions": {
-    "outDir": "./dist",
-    "rootDir": "./"
+    "outDir": "./dist/src",
+    "rootDir": "./src",
+    "baseUrl": ".",
+    "paths": {
+      "#*": ["src/*"]
+    }
   },
   "include": ["**/*.ts"],
   "exclude": ["dist"]

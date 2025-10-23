@@ -1,11 +1,11 @@
-import express, { Request, Response, NextFunction } from "express";
+import express from "express";
 import cors from "cors";
 
 import { urlRoutes } from "#routes/index.js";
 import { errorHandler } from "#middlewares/index.js";
 import { Url } from "#models/index.js";
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT ?? "8080";
 
 app.use(
   cors({
