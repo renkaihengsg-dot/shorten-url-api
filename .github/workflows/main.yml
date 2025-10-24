@@ -13,25 +13,33 @@ on:
       - production
 
 jobs:
-  setup:
-    name: Install dependencies
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
+      - uses: actions/checkout@v5
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
+          cache: "yarn"
 
-      - name: Install server dependencies
-        run: yarn install
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
 
       - name: Build
         run: yarn build
 
-      - name: Deploy to Render
-        if: github.ref == 'refs/heads/production'
+      - name: Unit test
+        run: yarn test
+
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy to Render
+    needs: build
+    if: github.ref == 'refs/heads/production'
+    steps:
+      - name: Trigger deploy hook
         env:
           deploy_url: ${{secrets.RENDER_DEPLOY_HOOK_URL}}
         run: |

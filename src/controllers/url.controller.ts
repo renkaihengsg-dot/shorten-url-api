@@ -9,8 +9,8 @@ const shortenUrl = async (req: Request, res: Response, next: NextFunction) => {
 
     const newUrl = await createShortenUrl(validated.originalUrl);
     res.send({
-      originalUrl: newUrl.originalUrl,
-      shortCode: newUrl.shortCode,
+      originalUrl: newUrl?.originalUrl,
+      shortCode: newUrl?.shortCode,
     });
   } catch (err: unknown) {
     next(err);
@@ -18,12 +18,11 @@ const shortenUrl = async (req: Request, res: Response, next: NextFunction) => {
 };
 
 const getUrl = async (req: Request, res: Response, next: NextFunction) => {
-  console.log("1");
   try {
     const validated = await getUrlSchema.validate(req.params);
     const url = await getOriginalUrl(validated.shortCode);
 
-    if (!url) {
+    if (!url?.originalUrl) {
       return res.status(404).json({
         message: "Not found",
         success: false,
