@@ -8,4 +8,6 @@ const getUrlSchema = yup.object({
   shortCode: yup.string().required("shortCode is required").max(10),
 });
 
-export { createSchema, getUrlSchema };
+type createDTO = yup.InferType<typeof createSchema>;
+
+export { createSchema, getUrlSchema, createDTO };

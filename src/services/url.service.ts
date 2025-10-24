@@ -3,7 +3,9 @@ import { nanoid } from "nanoid";
 
 import { Url } from "#models/index.js";
 
-const createShortenUrl = async (originalUrl: string): Promise<Url> => {
+const createShortenUrl = async (
+  originalUrl: string,
+): Promise<Partial<Url | null>> => {
   const shortCode = nanoid(6);
   const result = await Url.create({
     shortCode: shortCode,
@@ -13,7 +15,9 @@ const createShortenUrl = async (originalUrl: string): Promise<Url> => {
   return result;
 };
 
-const getOriginalUrl = async (shortCode: string) => {
+const getOriginalUrl = async (
+  shortCode: string,
+): Promise<Partial<Url | null>> => {
   const condition: WhereOptions<Url> = {
     shortCode: shortCode,
   };
