@@ -26,5 +26,5 @@ Make sure you have the following installed:
 
 Install Dependencies and start command
 
-yarn install
-yarn dev
+- yarn install
+- yarn dev
